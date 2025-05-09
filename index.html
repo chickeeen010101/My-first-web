@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <title>Shoryu Yoshikawa</title>
+
+        <style>
+            body {
+                font-family: sans-serif, Arial;
+                margin: 0;
+                padding: 0;
+                background-color: #2c2c2c;
+            }
+
+            header {
+                padding: 20px;
+                background-color: #2c2c2c;
+                color: #ffffff;
+                text-shadow:
+                    0 0 10px #ffffff,
+                    0 0 20px #ffffff,
+                    0 0 40px #bbbbbb;
+                text-align: center;
+            }
+
+            #intro {
+                height: 100vh;
+                position: relative;
+            }
+
+            #search-wrapper {
+                position: absolute;
+                top: 40px;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
+
+            #button-wrapper {
+                height: 80%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .search { 
+                position: relative;
+                width: 50vw;
+                border-radius: 999px;
+                overflow: hidden;
+                box-shadow:
+                    0 0 10px #4aa3ff,
+                    0 0 20px #5bb3ff,
+                    0 0 40px #3d8de6;
+            }
+
+            .search input {
+                width: 100%;
+                padding: 10px 80px 10px 20px;
+                box-sizing: border-box;
+                font-size: 16px;
+                border: none;
+                border-radius: 999px;
+                outline: none;
+            }
+
+            .search button {
+                position: absolute;
+                top: 0;
+                right: 0;
+                height: 100%;
+                padding: 0 20px;
+                font-size: 12px;
+                background-color: #f7e600;
+                color: #4aa3ff;
+                border: none;
+                border-radius: 0 999px 999px 0;
+                cursor: pointer;
+            }
+
+            #buttons {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(160px, 1fr));
+                row-gap: 5vh;
+                column-gap: max(24px, 12vw);
+                padding: 0 10vw;
+                margin: 0 auto;
+            }
+
+            #buttons button, #buttons .button-link button {
+                width: 100%;
+                padding: 20px 0;
+                font-size: 16px;
+                background-color: #f0f0f0;
+                border: 1px solid #ccc;
+                cursor: pointer;
+                border-radius: 999px;
+                box-shadow:
+                    0 0 12px rgba(173, 216, 230, 0.3),
+                    0 0 24px rgba(173, 216, 230, 0.2);
+                transition: box-shadow 0.3s;
+            }
+
+            #buttons button:hover, #buttons .button-link button:hover {
+                box-shadow:
+                    0 0 20px rgba(173, 216, 230, 0.6),
+                    0 0 40px rgba(173, 216, 230, 0.4);
+            }            
+
+            .button-link {
+                text-decoration: none;
+            }
+
+            #profile h2 {
+                color: #ffffff;
+                text-shadow:
+                    0 0 10px #ffffff,
+                    0 0 20px #ffffff,
+                    0 0 40px #bbbbbb;
+            }
+
+            section {
+                padding: 80px;
+                color: white;
+            }
+
+            .timeline-wrapper {
+                border-left: 2px solid #4aa3ff;
+                margin: 24px auto;
+                width: 80%;
+                text-align: left;
+                padding-left: 32px;
+            }
+
+            .timeline-item {
+                display: flex;
+                flex-wrap: wrap;
+                margin-bottom: 24px;
+                position: relative;
+                padding-left: 20px;
+            }
+
+            .timeline-item::before {
+                content: "";
+                position: absolute;
+                left: -38px;
+                top: 0.5em;
+                width: 10px;
+                height: 10px;
+                background-color: #f7e600;
+                border-radius: 50%;
+                box-shadow:
+                    0 0 5px #f4dc3b,
+                    0 0 10px #f6e215,
+                    0 0 20px #f7e600;
+            }
+
+            .timeline-label {
+                font-weight: bold;
+                min-width: 120px;
+            }
+
+            .timeline-detail {
+                flex: 1;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <h1>紹介ページ</h1>
+        </header>
+
+        <div id="intro">
+            <div id="search-wrapper">
+                <div class="search">
+                    <input type="text" id="searchInput" placeholder="開発中...">
+                    <button onclick="searchArticles()">検索</button>
+                </div>
+            </div>
+        
+            <div id="button-wrapper">
+                <div id="buttons">
+                    <button onclick="scrollToProfile()">プロフィール</button>
+                    <a href="reference.html" class="button-link"><button>参考資料</button></a>
+                    <a href="research.html" class="button-link"><button>研究成果</button></a>
+                    <a href="blog.html" class="button-link"><button>ブログ</button></a>
+                </div>
+            </div>
+        </div>
+        
+
+        <section id="profile">
+            <h2>プロフィール</h2>
+
+            <div class="timeline-wrapper">
+                <div class="timeline-item">
+                    <span class="timeline-label">2019年 4月:</span>
+                    <span class="timeline-detail">常翔学園高等学校 入学</span>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-label">2022年 3月:</span>
+                    <span class="timeline-detail">常翔学園高等学校 卒業</span>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-label">2022年 4月:</span>
+                    <span class="timeline-detail">
+                        大阪工業大学<br>
+                        ロボティクス&デザイン工学部<br>
+                        システムデザイン工学科 入学</span>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-label">2026年 3月:</span>
+                    <span class="timeline-detail">
+                        大阪工業大学<br>
+                        ロボティクス&デザイン工学部<br>
+                        システムデザイン工学科 卒業予定</span>
+                </div>
+            </div>
+        </section>
+
+        <script>
+            function scrollToProfile() {
+                document.getElementById("profile").scrollIntoView({ behavior: "smooth" });
+            }
+        </script>
+    </body>
+</html>
+
+
+<!--
+**  プログラムの勉強  **
+body {
+    font-family: sans-serif, Arial;  # フォントの指定
+    margin: 0;                       # デフォルトの余白をリセット
+    padding: 0;                      # デフォルトの余白をリセット
+}
+
++ + + + + + + + + + + + + + + + + + + +
+
+justify-content: center;  # 横軸中央揃え
+align-items: center;      # 縦軸中央揃え
+
++ + + + + + + + + + + + + + + + + + + +
+
+<div class="test">
+    <span class="a">年代:</span>
+    <span class="b">文章</span>
+</div>
+
+  ~   ~   ~   ~   ~   ~   ~   ~   ~   ~
+
+.test {
+    display: flex;        # 子要素を横並びで整列させるために使用するもの
+    flex-wrap: wrap;      # どんな画面サイズでも文字が正しく表示されるよう，折り返しを行う
+    margin-bottom: 24px;  # 各項目の下に余白を作る．（通常文字は16pxらしいので1文字半の24px空けることにした）
+}
+
+.a {
+    font-weight: bold;    # font-weight: 〇〇; でフォントの太さを指定
+    min-width: 120px;     # "年代"が少なくとも120pxのスペースを持つように
+}
+
+.b {
+    flex: 1;              # タイムラインが残りの余白を使うための常套句のようなもの(?)
+}
+
+
+**  URL  **
+https://developer.mozilla.org/ja/
+    -> https://developer.mozilla.org/ja/docs/Web/CSS/font-weight
+-->
